@@ -1,333 +1,382 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Nayoung Kim</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications - Nayoung Kim</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            overflow-x: hidden;
-        }
+    :root {
+      --bg: #e9e9e9;
+      --text: #111111;
+      --muted: #4a4a4a;
+      --button-bg: #1f1c1d;
+      --button-text: #f7f7f7;
+      --max-width: 1400px;
+    }
 
-        /* Navigation */
-        .nav {
-            width: 100%;
-            background: white;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Navigation */
+    .nav {
+      width: 100%;
+      background: rgba(233, 233, 233, 0.96);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000000;
-            margin-right: 2rem;
-            flex-shrink: 0;
-        }
+    .nav-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+      flex-shrink: 0;
+    }
 
-        .nav-links::-webkit-scrollbar {
-            display: none;
-        }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
 
-        .nav-links a:hover {
-            background: #f0f0f0;
-            color: #007AFF;
-        }
+    .nav-links a {
+      text-decoration: none;
+      color: #222;
+      font-size: 0.95rem;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 0.3rem 0.2rem;
+      transition: opacity 0.25s ease;
+    }
 
-        .nav-links .infinity {
-            font-size: 1.4rem;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-        }
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
 
-        /* Main Container */
-        .main-container {
-            max-width: 1000px;
-            margin: 120px auto 0;
-            padding: 2rem;
-        }
+    .nav-links .infinity {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
 
-        .page-header {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
-        }
+    /* Main */
+    .main-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 8.5rem 2rem 4rem;
+    }
 
-        .page-title {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: #000000;
-        }
+    .page-header {
+      margin-bottom: 4.5rem;
+    }
 
-        .page-subtitle {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
+    .page-title {
+      font-size: clamp(3.8rem, 8vw, 6rem);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 2.5rem;
+      color: #000;
+    }
 
-        /* Publications List */
-        .year-divider {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #000;
-            margin: 4rem 0 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
+    .scholar-button {
+      display: inline-block;
+      background: var(--button-bg);
+      color: var(--button-text);
+      text-decoration: none;
+      padding: 1rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 2px;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
 
-        .year-divider:first-of-type {
-            margin-top: 0;
-        }
+    .scholar-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
 
-        .publication-item {
-            margin-bottom: 3rem;
-            transition: opacity 0.3s ease;
-        }
+    /* Publications layout */
+    .publications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
 
-        .publication-type {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .year-group {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      column-gap: 4rem;
+      align-items: start;
+    }
 
-        .publication-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: #000;
-        }
+    .year-label {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #000;
+      padding-top: 0.15rem;
+    }
 
-        .publication-authors {
-            color: #444;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
+    .year-publications {
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
+    }
 
-        .publication-venue {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-style: italic;
-        }
+    .publication-item {
+      max-width: 1050px;
+    }
 
-        .publication-abstract {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
+    .publication-text {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--muted);
+      letter-spacing: -0.01em;
+    }
 
-        .publication-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+    .publication-text strong {
+      color: #000;
+      font-weight: 700;
+    }
 
-        .publication-link {
-            color: #007AFF;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    .publication-links {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-        .publication-link:hover {
-            color: #0056b3;
-        }
+    .publication-link {
+      text-decoration: none;
+      color: #111;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      transition: opacity 0.2s ease;
+    }
 
-        @media (min-width: 768px) {
-            .page-title {
-                font-size: 4rem;
-            }
-            
-            .page-subtitle {
-                font-size: 1.2rem;
-            }
-        }
+    .publication-link:hover {
+      opacity: 0.6;
+    }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-            
-            .nav-links a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            .nav-links .infinity {
-                font-size: 1.2rem;
-                padding: 0.4rem 0.8rem;
-            }
+    @media (max-width: 900px) {
+      .main-container {
+        padding: 7.5rem 1.5rem 3rem;
+      }
 
-            .main-container {
-                padding: 1.5rem;
-            }
+      .year-group {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+      }
 
-            .page-title {
-                font-size: 2.5rem;
-            }
+      .year-label {
+        font-size: 1.8rem;
+      }
 
-            .year-divider {
-                font-size: 1.8rem;
-            }
+      .year-publications {
+        gap: 2rem;
+      }
+    }
 
-            .publication-title {
-                font-size: 1.2rem;
-            }
-        }
+    @media (max-width: 640px) {
+      .nav {
+        padding: 1rem 1rem;
+      }
 
-        @media (max-width: 480px) {
-            .nav-links {
-                gap: 0.5rem;
-            }
-            
-            .nav-links a {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.85rem;
-            }
-            
-            .nav-links .infinity {
-                font-size: 1.1rem;
-                padding: 0.3rem 0.6rem;
-            }
+      .main-container {
+        padding: 7rem 1rem 2.5rem;
+      }
 
-            .page-title {
-                font-size: 2rem;
-            }
+      .publication-text {
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
 
-            .publication-links {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-        }
-    </style>
+      .scholar-button {
+        padding: 0.9rem 1.4rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="index.html" class="logo">0</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="research.html">Research</a>
-                <a href="projects.html">Projects</a>
-                <a href="publications.html">Publications</a>
-                <a href="https://www.notion.so/e91f58981727498d9625591d284634ce?pvs=4" class="infinity" target="_blank">∞</a>
-                <a href="contact.html">Contact</a>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="index.html" class="logo">0</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="https://www.notion.so/e91f58981727498d9625591d284634ce?pvs=4" class="infinity" target="_blank">∞</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container">
+    <header class="page-header">
+      <h1 class="page-title">Publications</h1>
+      <a
+        class="scholar-button"
+        href="https://scholar.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Google scholar
+      </a>
+    </header>
+
+    <section class="publications-list">
+      <div class="year-group">
+        <div class="year-label">2026</div>
+        <div class="year-publications">
+          <article class="publication-item">
+            <p class="publication-text">
+              <strong>Sunok Lee</strong> and Haedong Jeong. "I Can Be Anything!" Bridging Today and the Future through Generative AI-driven Self-represented Career Imagination for Children.
+              <br>
+              In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26).
+              <br>
+              Association for Computing Machinery, New York, NY, USA. (to appear)
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p class="publication-text">
+              Heesung Kwon, Jeesun Oh, Suyoun Lee, <strong>Sunok Lee</strong> and Sangsu Lee. Investigating AI-induced Technostress and Coping Strategies of Professionals.
+              <br>
+              In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26).
+              <br>
+              Association for Computing Machinery, New York, NY, USA. (to appear)
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p class="publication-text">
+              <strong>Sunok Lee</strong>, Dasom Choi, Hyeonjeong Im, Yunjae Josephine Choi, Minha Lee, Hwajung Hong, and Sangsu Lee. Fostering School-aged Children’s Critical Thinking Competency about AI Through Art-based Education.
+              <br>
+              International Journal of Human–Computer Interaction (2026). (to appear)
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p class="publication-text">
+              <strong>Nayoung Kim</strong>, Hyochang Kim, Sunok Lee, and Changjoo Nam. Hey, Robot! Don’t Cut in Line: Designing Queuing Behaviors of Delivery Robots with Multiple Stakeholders. (under review)
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">Project</a>
             </div>
+          </article>
         </div>
-    </nav>
+      </div>
 
-    <main class="main-container">
-        <header class="page-header">
-            <h1 class="page-title">Publications</h1>
-            <p class="page-subtitle">Research publications in HCI, UX, and Human-Robot Interaction</p>
-        </header>
-
-        <div class="publications-list">
-            <h2 class="year-divider">2024</h2>
-            <div class="publication-item">
-                <div class="publication-type">Conference Paper</div>
-                <h3 class="publication-title">Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons</h3>
-                <p class="publication-authors">Nayoung Kim, Sona Kwak</p>
-                <p class="publication-venue">IROS 2024</p>
-                <p class="publication-abstract">
-                    배달 로봇의 도덕적 행위가 주변 사람으로 하여금 동조를 야기하고 사용의도를 향상시킬 수 있을지에 관하여 연구하였습니다.
-                </p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">PDF →</a>
-                    <a href="#" class="publication-link">DOI →</a>
-                    <a href="#" class="publication-link">Slides →</a>
-                </div>
+      <div class="year-group">
+        <div class="year-label">2024</div>
+        <div class="year-publications">
+          <article class="publication-item">
+            <p class="publication-text">
+              <strong>Nayoung Kim</strong> and Sona Kwak. Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons.
+              <br>
+              IROS 2024.
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">DOI</a>
+              <a href="#" class="publication-link">Slides</a>
             </div>
-
-            <h2 class="year-divider">2023</h2>
-            <div class="publication-item">
-                <div class="publication-type">Journal Article</div>
-                <h3 class="publication-title">Evaluating and eliciting design requirements for an improved user experience in live-streaming commerce interfaces</h3>
-                <p class="publication-authors">H Shin, C Oh, NY Kim, H Choi, B Kim, YG Ji</p>
-                <p class="publication-venue">Journal of Human-Computer Interaction</p>
-                <p class="publication-abstract">
-                    라이브커머스 사용자 경험(UX) 향상을 위한 세렌디피티 효과 확인 및 가이드라인 개발
-                </p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">PDF →</a>
-                    <a href="#" class="publication-link">DOI →</a>
-                </div>
-            </div>
-
-            <div class="publication-item">
-                <div class="publication-type">Conference Paper</div>
-                <h3 class="publication-title">Analysis of user experience requirements for continuous use of digital healthcare services for female infertility</h3>
-                <p class="publication-authors">Nayoung Kim</p>
-                <p class="publication-venue">HCIK2023</p>
-                <p class="publication-abstract">
-                    난임 여성들의 난임 관리 어플리케이션에 대한 니즈와 사용성 측면에서의 개선 사항에 관한 연구를 수행하였습니다.
-                </p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">PDF →</a>
-                    <a href="#" class="publication-link">Video →</a>
-                    <a href="#" class="publication-link">Slides →</a>
-                </div>
-            </div>
+          </article>
         </div>
-    </main>
+      </div>
 
-    <script>
-        gsap.from(".publication-item", {
-            duration: 1,
-            y: 30,
-            opacity: 0,
-            stagger: 0.2,
-            delay: 0.2
-        });
-    </script>
+      <div class="year-group">
+        <div class="year-label">2023</div>
+        <div class="year-publications">
+          <article class="publication-item">
+            <p class="publication-text">
+              H. Shin, C. Oh, <strong>N. Y. Kim</strong>, H. Choi, B. Kim, and Y. G. Ji. Evaluating and eliciting design requirements for an improved user experience in live-streaming commerce interfaces.
+              <br>
+              Journal of Human-Computer Interaction.
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">DOI</a>
+            </div>
+          </article>
+
+          <article class="publication-item">
+            <p class="publication-text">
+              <strong>Nayoung Kim</strong>. Analysis of user experience requirements for continuous use of digital healthcare services for female infertility.
+              <br>
+              HCIK 2023.
+            </p>
+            <div class="publication-links">
+              <a href="#" class="publication-link">PDF</a>
+              <a href="#" class="publication-link">Video</a>
+              <a href="#" class="publication-link">Slides</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    gsap.from(".page-title", {
+      duration: 0.9,
+      y: 24,
+      opacity: 0,
+      ease: "power2.out"
+    });
+
+    gsap.from(".scholar-button", {
+      duration: 0.8,
+      y: 16,
+      opacity: 0,
+      delay: 0.15,
+      ease: "power2.out"
+    });
+
+    gsap.from(".year-group", {
+      duration: 0.9,
+      y: 26,
+      opacity: 0,
+      stagger: 0.16,
+      delay: 0.25,
+      ease: "power2.out"
+    });
+  </script>
 </body>
 </html>
