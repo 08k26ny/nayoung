@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nayoung Kim | HCI/UX Researcher</title>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #e9e9e9;
@@ -19,34 +16,18 @@
       --max-width: 1380px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
-      background: rgba(233, 233, 233, 0.94);
-      backdrop-filter: blur(10px);
+      background: rgba(233,233,233,0.95);
       border-bottom: 1px solid var(--line);
       z-index: 1000;
     }
@@ -54,36 +35,12 @@
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.1rem 2rem;
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      font-size: 0.95rem;
-      color: #222;
-      transition: opacity 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.55;
-    }
+    .nav-links { display: flex; gap: 1.5rem; }
 
     .container {
       max-width: var(--max-width);
@@ -92,351 +49,177 @@
     }
 
     .hero {
-      min-height: 78vh;
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 4rem;
       align-items: center;
       border-bottom: 1px solid var(--line);
       padding-bottom: 4rem;
     }
 
-    .hero-text h1 {
-      font-size: clamp(3.2rem, 8vw, 6rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
+    h1 {
+      font-size: 4rem;
       margin-bottom: 1rem;
     }
 
-    .meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      font-size: 1.02rem;
-    }
-
-    .meta a {
-      width: fit-content;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    }
+    .meta { margin-bottom: 2rem; }
 
     .intro {
-      max-width: 760px;
-      font-size: 1.05rem;
-      color: #333;
-      line-height: 1.8;
       margin-bottom: 1.5rem;
+      line-height: 1.7;
     }
 
     .hero-actions {
       display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 0.5rem;
+      gap: 1rem;
     }
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.95rem 1.45rem;
-      border: 1px solid #111;
+      padding: 0.8rem 1.4rem;
       border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      transition: all 0.2s ease;
-      min-width: 150px;
+      border: 1px solid #111;
     }
 
-    .button.primary {
+    .primary {
       background: #111;
-      color: #f5f5f5;
+      color: white;
     }
 
-    .button.secondary {
+    .secondary {
       background: transparent;
-      color: #111;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button.primary:hover {
-      opacity: 0.92;
-    }
-
-    .button.secondary:hover {
-      background: rgba(0, 0, 0, 0.04);
-    }
-
-    .hero-image-wrap {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-image {
-      width: min(420px, 100%);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: #dcdcdc;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     .section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
       padding: 4rem 0;
       border-bottom: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 3rem;
     }
 
-    .section:last-child {
-      border-bottom: none;
+    .publication-header {
+      margin-bottom: 2rem;
     }
 
-    .section-title {
-      font-size: 1.9rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+    .list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .item-title { font-weight: 600; }
+
+    .item-meta { color: var(--muted); }
+
+    .hero img {
+      width: 100%;
+      object-fit: cover;
     }
 
-    .section-body {
-      max-width: 900px;
-    }
-
-    .section-body p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .item {
-      padding-bottom: 1.4rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .item-title {
-      font-size: 1.08rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      line-height: 1.5;
-    }
-
-    .item-meta {
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.7;
-    }
-
-    .footer {
-      padding: 2rem 0 1rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .hero-image-wrap {
-        justify-content: flex-start;
-      }
-
-      .section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        padding: 7rem 1rem 3rem;
-      }
-
-      .nav-inner {
-        padding: 1rem;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 0.9rem;
-      }
-
-      .meta,
-      .intro,
-      .section-body p,
-      .item-meta {
-        font-size: 0.96rem;
-      }
-
-      .button {
-        width: 100%;
-        min-width: unset;
-        text-align: center;
-      }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .section { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#" class="logo">Nayoung Kim</a>
-      <nav class="nav-links">
-        <a href="#about">About Me</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div>Nayoung Kim</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Nayoung Kim</h1>
+<main class="container">
 
-        <div class="meta">
-          <div>HCI / UX Researcher</div>
-          <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a>
+<section class="hero">
+  <div>
+    <h1>Nayoung Kim</h1>
+
+    <div class="meta">
+      HCI / UX Researcher <br>
+      <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a>
+    </div>
+
+    <p class="intro">
+      I design human-centered AI and robotic systems that bridge user needs and technology.
+    </p>
+
+    <div class="hero-actions">
+      <a href="./NAYOUNGKIM_CV.pdf" class="button primary" target="_blank">CV</a>
+      <a href="./UX Researcher_NAYOUNGKIM_Portfolio.pdf" class="button primary" target="_blank">Portfolio</a>
+    </div>
+  </div>
+
+  <div>
+    <img src="./profile.jpg" alt="profile">
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div><strong>About</strong></div>
+  <div>
+    I study human interaction with AI and robotics through UX and HCI methods.
+  </div>
+</section>
+
+<section id="publications" class="section">
+  <div><strong>Publications</strong></div>
+
+  <div>
+
+    <!-- 🔥 여기 추가된 버튼 -->
+    <div class="publication-header">
+      <a href="https://scholar.google.com/citations?user=pdQ6kzsAAAAJ&hl=ko"
+         class="button secondary"
+         target="_blank">
+         Google Scholar →
+      </a>
+    </div>
+
+    <div class="list">
+
+      <div>
+        <div class="item-title">
+          Investigating Behavioral and Cognitive Changes...
         </div>
-
-        <p class="intro">
-          Technology and services are constantly changing, and the human user is always at the center of it all.
-          I design services around people.
-          As a UX researcher, I want to bridge the gap between user needs and services.
-        </p>
-
-        <p class="intro">
-          I am particularly interested in how people understand, trust, and collaborate with intelligent systems in everyday and work related contexts.
-        </p>
-
-        <div class="hero-actions">
-          <a href="./NAYOUNGKIM_CV.pdf" class="button primary" target="_blank" rel="noopener noreferrer">
-            CV
-          </a>
-          <a href="./UX Researcher_NAYOUNGKIM_Portfolio.pdf" class="button primary" target="_blank" rel="noopener noreferrer">
-            Portfolio
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-image-wrap">
-        <div class="hero-image">
-          <img src="./profile.jpg" alt="Nayoung Kim profile photo">
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="section-title">About</div>
-      <div class="section-body">
-        <p>
-          With a background in psychology, industrial engineering, and HCI, I study how people interact with emerging technologies.
-          My work combines qualitative and quantitative UX methods to understand user behavior, cognition, and experience.
-        </p>
-        <p>
-          I am especially interested in human robot interaction, AI service design, teleoperation, and interfaces that support older adults and other diverse users.
-        </p>
-      </div>
-    </section>
-
-    <section id="publications" class="section">
-      <div class="section-title">Publications</div>
-      <div class="section-body">
-        <div class="list">
-          <article class="item">
-            <div class="item-title">
-              Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons
-            </div>
-            <div class="item-meta">
-              Nayoung Kim, Sona Kwak · IROS 2024
-            </div>
-          </article>
-
-          <article class="item">
-            <div class="item-title">
-              Evaluating and Eliciting Design Requirements for an Improved User Experience in Live-streaming Commerce Interfaces
-            </div>
-            <div class="item-meta">
-              H. Shin, C. Oh, N. Y. Kim, H. Choi, B. Kim, Y. G. Ji · Journal Article
-            </div>
-          </article>
-
-          <article class="item">
-            <div class="item-title">
-              Analysis of User Experience Requirements for Continuous Use of Digital Healthcare Services for Female Infertility
-            </div>
-            <div class="item-meta">
-              Nayoung Kim · HCIK 2023
-            </div>
-          </article>
+        <div class="item-meta">
+          Nayoung Kim · IROS 2024
         </div>
       </div>
-    </section>
 
-    <section id="projects" class="section">
-      <div class="section-title">Projects</div>
-      <div class="section-body">
-        <div class="list">
-          <article class="item">
-            <div class="item-title">Elderly-friendly Shared Autonomy for Teleoperated Robots</div>
-            <div class="item-meta">
-              Research on teleoperation interfaces and cognitive support for older adults in super-aged societies.
-            </div>
-          </article>
-
-          <article class="item">
-            <div class="item-title">Human-centered UX Design for AI Robot Services</div>
-            <div class="item-meta">
-              Service planning, interface design, usability testing, and behavioral analysis for robotics systems.
-            </div>
-          </article>
-
-          <article class="item">
-            <div class="item-title">Delivery Robot Interaction and Social Behavior</div>
-            <div class="item-meta">
-              Studies on queuing behavior, incidentally copresent persons, and stakeholder-centered robot design.
-            </div>
-          </article>
+      <div>
+        <div class="item-title">
+          Evaluating UX in Live-streaming Commerce
+        </div>
+        <div class="item-meta">
+          Journal Article
         </div>
       </div>
-    </section>
 
-    <section id="contact" class="section">
-      <div class="section-title">Contact</div>
-      <div class="section-body">
-        <p>Email: <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/08k26ny" target="_blank" rel="noopener noreferrer">github.com/08k26ny</a></p>
-        <p>Google Scholar: <a href="https://scholar.google.com/citations?user=pdQ6kzsAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">https://scholar.google.com/citations?user=pdQ6kzsAAAAJ&hl=ko</a></p>
-      </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-      © 2026 Nayoung Kim
-    </footer>
-  </main>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div><strong>Projects</strong></div>
+  <div>Various HCI and robotics projects.</div>
+</section>
+
+<section id="contact" class="section">
+  <div><strong>Contact</strong></div>
+  <div>
+    nayoungkim0826@gmail.com <br>
+    <a href="https://github.com/08k26ny">GitHub</a>
+  </div>
+</section>
+
+<footer style="margin-top:2rem;">© 2026 Nayoung Kim</footer>
+
+</main>
 </body>
 </html>
