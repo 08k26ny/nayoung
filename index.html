@@ -252,12 +252,31 @@
       font-weight: 700;
       margin-bottom: 0.4rem;
       line-height: 1.5;
+      color: var(--text);
+    }
+
+    .publication-title-link {
+      display: inline;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+
+    .publication-title-link:hover {
+      opacity: 0.7;
+      border-color: rgba(0, 0, 0, 0.25);
     }
 
     .item-meta {
       color: var(--muted);
       font-size: 0.96rem;
       line-height: 1.7;
+    }
+
+    .project-submeta {
+      margin-top: 0.45rem;
+      color: #666;
+      font-size: 0.93rem;
+      line-height: 1.6;
     }
 
     .footer {
@@ -319,7 +338,8 @@
       .intro,
       .section-body p,
       .item-meta,
-      .meta {
+      .meta,
+      .project-submeta {
         font-size: 0.98rem;
       }
     }
@@ -371,7 +391,8 @@
       }
 
       .item-meta,
-      .section-body p {
+      .section-body p,
+      .project-submeta {
         font-size: 0.94rem;
       }
 
@@ -461,7 +482,9 @@
         <div class="list">
           <article class="item">
             <div class="item-title">
-              Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons
+              <a href="./papers/iros2024.pdf" class="publication-title-link" target="_blank" rel="noopener noreferrer">
+                Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons
+              </a>
             </div>
             <div class="item-meta">
               Nayoung Kim, Sona Kwak · IROS 2024
@@ -470,7 +493,9 @@
 
           <article class="item">
             <div class="item-title">
-              Evaluating and Eliciting Design Requirements for an Improved User Experience in Live-streaming Commerce Interfaces
+              <a href="./papers/live-commerce.pdf" class="publication-title-link" target="_blank" rel="noopener noreferrer">
+                Evaluating and Eliciting Design Requirements for an Improved User Experience in Live-streaming Commerce Interfaces
+              </a>
             </div>
             <div class="item-meta">
               H. Shin, C. Oh, N. Y. Kim, H. Choi, B. Kim, Y. G. Ji · Journal Article
@@ -479,7 +504,9 @@
 
           <article class="item">
             <div class="item-title">
-              Analysis of User Experience Requirements for Continuous Use of Digital Healthcare Services for Female Infertility
+              <a href="./papers/hcik2023.pdf" class="publication-title-link" target="_blank" rel="noopener noreferrer">
+                Analysis of User Experience Requirements for Continuous Use of Digital Healthcare Services for Female Infertility
+              </a>
             </div>
             <div class="item-meta">
               Nayoung Kim · HCIK 2023
@@ -498,6 +525,10 @@
             <div class="item-meta">
               Research on teleoperation interfaces and cognitive support for older adults in super-aged societies.
             </div>
+            <div class="project-submeta">
+              Period: 2024.08 – Present<br>
+              Organizer: Sogang University AI Robotics Lab
+            </div>
           </article>
 
           <article class="item">
@@ -505,12 +536,20 @@
             <div class="item-meta">
               Service planning, interface design, usability testing, and behavioral analysis for robotics systems.
             </div>
+            <div class="project-submeta">
+              Period: 2023.08 – 2024.02<br>
+              Organizer: KIST AI Robot Center
+            </div>
           </article>
 
           <article class="item">
             <div class="item-title">Delivery Robot Interaction and Social Behavior</div>
             <div class="item-meta">
               Studies on queuing behavior, incidentally copresent persons, and stakeholder-centered robot design.
+            </div>
+            <div class="project-submeta">
+              Period: 2024.03 – Present<br>
+              Organizer: Sogang University / Collaborative Research Project
             </div>
           </article>
         </div>
