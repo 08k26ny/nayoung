@@ -6,228 +6,7 @@
   <title>Publications - Nayoung Kim</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #e9e9e9;
-      --text: #111111;
-      --muted: #4a4a4a;
-      --button-bg: #1f1c1d;
-      --button-text: #f7f7f7;
-      --max-width: 1400px;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* Navigation */
-    .nav {
-      width: 100%;
-      background: rgba(233, 233, 233, 0.96);
-      backdrop-filter: blur(8px);
-      padding: 1.2rem 2rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .nav-content {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--text);
-      flex-shrink: 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #222;
-      font-size: 0.95rem;
-      font-weight: 500;
-      white-space: nowrap;
-      padding: 0.3rem 0.2rem;
-      transition: opacity 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.55;
-    }
-
-    .nav-links .infinity {
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    /* Main */
-    .main-container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 8.5rem 2rem 4rem;
-    }
-
-    .page-header {
-      margin-bottom: 4.5rem;
-    }
-
-    .page-title {
-      font-size: clamp(3.8rem, 8vw, 6rem);
-      line-height: 0.95;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 2.5rem;
-      color: #000;
-    }
-
-    .scholar-button {
-      display: inline-block;
-      background: var(--button-bg);
-      color: var(--button-text);
-      text-decoration: none;
-      padding: 1rem 1.8rem;
-      font-size: 1rem;
-      border-radius: 2px;
-      letter-spacing: 0.01em;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .scholar-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    /* Publications layout */
-    .publications-list {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5rem;
-    }
-
-    .year-group {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      column-gap: 4rem;
-      align-items: start;
-    }
-
-    .year-label {
-      font-size: 2.1rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #000;
-      padding-top: 0.15rem;
-    }
-
-    .year-publications {
-      display: flex;
-      flex-direction: column;
-      gap: 2.8rem;
-    }
-
-    .publication-item {
-      max-width: 1050px;
-    }
-
-    .publication-text {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--muted);
-      letter-spacing: -0.01em;
-    }
-
-    .publication-text strong {
-      color: #000;
-      font-weight: 700;
-    }
-
-    .publication-links {
-      margin-top: 0.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .publication-link {
-      text-decoration: none;
-      color: #111;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-      transition: opacity 0.2s ease;
-    }
-
-    .publication-link:hover {
-      opacity: 0.6;
-    }
-
-    @media (max-width: 900px) {
-      .main-container {
-        padding: 7.5rem 1.5rem 3rem;
-      }
-
-      .year-group {
-        grid-template-columns: 1fr;
-        row-gap: 1rem;
-      }
-
-      .year-label {
-        font-size: 1.8rem;
-      }
-
-      .year-publications {
-        gap: 2rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav {
-        padding: 1rem 1rem;
-      }
-
-      .main-container {
-        padding: 7rem 1rem 2.5rem;
-      }
-
-      .publication-text {
-        font-size: 0.98rem;
-        line-height: 1.7;
-      }
-
-      .scholar-button {
-        padding: 0.9rem 1.4rem;
-        font-size: 0.95rem;
-      }
-    }
+    /* ... (기존 CSS 코드) ... */
   </style>
 </head>
 <body>
@@ -235,12 +14,6 @@
     <div class="nav-content">
       <a href="index.html" class="logo">0</a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="https://www.notion.so/e91f58981727498d9625591d284634ce?pvs=4" class="infinity" target="_blank">∞</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>
@@ -251,7 +24,7 @@
       <h1 class="page-title">Publications</h1>
       <a
         class="scholar-button"
-        href="https://scholar.google.com/citations?user=pdQ6kzsAAAAJ&hl=ko"
+        href="https://scholar.google.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -266,9 +39,11 @@
           <article class="publication-item">
             <p class="publication-text">
               <strong>Sunok Lee</strong> and Haedong Jeong. "I Can Be Anything!" Bridging Today and the Future through Generative AI-driven Self-represented Career Imagination for Children.
-              <br>
+              
+
               In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26).
-              <br>
+              
+
               Association for Computing Machinery, New York, NY, USA. (to appear)
             </p>
           </article>
@@ -276,24 +51,27 @@
           <article class="publication-item">
             <p class="publication-text">
               Heesung Kwon, Jeesun Oh, Suyoun Lee, <strong>Sunok Lee</strong> and Sangsu Lee. Investigating AI-induced Technostress and Coping Strategies of Professionals.
-              <br>
+              
+
               In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26).
-              <br>
+              
+
               Association for Computing Machinery, New York, NY, USA. (to appear)
             </p>
           </article>
 
           <article class="publication-item">
             <p class="publication-text">
-              <strong>Sunok Lee</strong>, Dasom Choi, Hyeonjeong Im, Yunjae Josephine Choi, Minha Lee, Hwajung Hong, and Sangsu Lee. Fostering School-aged Children’s Critical Thinking Competency about AI Through Art-based Education.
-              <br>
+              <strong>Sunok Lee</strong>, Dasom Choi, Hyeonjeong Im, Yunjae Josephine Choi, Minha Lee, Hwajung Hong, and Sangsu Lee. Fostering School-aged Children's Critical Thinking Competency about AI Through Art-based Education.
+              
+
               International Journal of Human–Computer Interaction (2026). (to appear)
             </p>
           </article>
 
           <article class="publication-item">
             <p class="publication-text">
-              <strong>Nayoung Kim</strong>, Hyochang Kim, Sunok Lee, and Changjoo Nam. Hey, Robot! Don’t Cut in Line: Designing Queuing Behaviors of Delivery Robots with Multiple Stakeholders. (under review)
+              <strong>Nayoung Kim</strong>, Hyochang Kim, Sunok Lee, and Changjoo Nam. Hey, Robot! Don't Cut in Line: Designing Queuing Behaviors of Delivery Robots with Multiple Stakeholders. (under review)
             </p>
             <div class="publication-links">
               <a href="#" class="publication-link">PDF</a>
@@ -309,7 +87,8 @@
           <article class="publication-item">
             <p class="publication-text">
               <strong>Nayoung Kim</strong> and Sona Kwak. Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots in Incidentally Copresent Persons.
-              <br>
+              
+
               IROS 2024.
             </p>
             <div class="publication-links">
@@ -327,7 +106,8 @@
           <article class="publication-item">
             <p class="publication-text">
               H. Shin, C. Oh, <strong>N. Y. Kim</strong>, H. Choi, B. Kim, and Y. G. Ji. Evaluating and eliciting design requirements for an improved user experience in live-streaming commerce interfaces.
-              <br>
+              
+
               Journal of Human-Computer Interaction.
             </p>
             <div class="publication-links">
@@ -339,7 +119,8 @@
           <article class="publication-item">
             <p class="publication-text">
               <strong>Nayoung Kim</strong>. Analysis of user experience requirements for continuous use of digital healthcare services for female infertility.
-              <br>
+              
+
               HCIK 2023.
             </p>
             <div class="publication-links">
