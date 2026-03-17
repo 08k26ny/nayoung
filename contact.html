@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Human-centered Interaction Research</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/lucide.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            width: 100%;
+            background: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background: #f0f0f0;
+            color: #007AFF;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding-top: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .contact-grid {
+            margin-top: 4rem;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-name {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-title {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-description {
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border-radius: 100px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #007AFF;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 8rem 4rem 4rem;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 4rem;
+            }
+
+            .contact-grid {
+                margin-top: 6rem;
+            }
+
+            .contact-section {
+                padding: 3rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-name {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-button {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">0</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="research.html">Research</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="insights.html">Insights</a>
+                <a href="digging.html">Digging</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <header class="page-header">
+            <h1 class="page-title">Contact</h1>
+            <p class="page-subtitle">Feel free to contact me for collaboration and questions</p>
+        </header>
+
+        <div class="contact-grid">
+            <section class="contact-section">
+                <div class="contact-info">
+                    <div class="profile-image">
+                        <img src="profile.jpg" alt="Profile Photo">
+                    </div>
+                    <h2 class="contact-name">Nayoung Kim</h2>
+                    <p class="contact-title">HCI Researcher</p>
+                    <p class="contact-description">
+                        I'm always excited to chat about HCI, UX research and design<br>
+                        Feel free to reach out about collaboration ideas or potential projects!
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/08na26youngkim/" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="linkedin"></i>  
+                            LinkedIn
+                        </a>
+                        <a href="mailto:nayoungkim0826@gmail.com" class="social-link">
+                            <i data-lucide="mail"></i>  
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // 아이콘 초기화
+        document.addEvent
+    </script>
+</body>
+</html>
