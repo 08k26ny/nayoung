@@ -6,45 +6,30 @@
   <title>Nayoung Kim | HCI / UX Researcher</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #e9e9e9;
-      --text: #111111;
-      --muted: #555555;
-      --line: rgba(0, 0, 0, 0.08);
+      --text: #111;
+      --muted: #555;
+      --line: rgba(0,0,0,0.08);
       --max-width: 1380px;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      overflow-wrap: anywhere;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* NAV */
     .nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(233, 233, 233, 0.94);
+      background: rgba(233,233,233,0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
       z-index: 1000;
@@ -53,27 +38,13 @@
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.1rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
+    .nav-links { display: flex; gap: 1.2rem; }
 
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.6;
-    }
-
-    /* LAYOUT */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -82,121 +53,74 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      gap: 4rem;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
       border-bottom: 1px solid var(--line);
       padding-bottom: 4rem;
     }
 
-    .hero-text h1 {
+    .hero h1 {
       font-size: clamp(2.2rem, 5vw, 4rem);
-      letter-spacing: -0.05em;
       margin-bottom: 1rem;
-    }
-
-    .meta {
-      margin-bottom: 2rem;
-    }
-
-    .intro {
-      color: #333;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .button {
-      padding: 0.9rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid #111;
-    }
-
-    .primary {
-      background: #111;
-      color: #fff;
-    }
-
-    /* IMAGE */
-    .hero-image {
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 4/5;
-      overflow: hidden;
     }
 
     .hero-image img {
       width: 100%;
-      height: 100%;
       object-fit: cover;
     }
 
-    /* SECTION */
+    .button {
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid #111;
+    }
+
+    .primary { background: #111; color: #fff; }
+
     .section {
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--line);
       display: grid;
       grid-template-columns: 200px 1fr;
       gap: 2rem;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .section-title {
+      font-size: 1.6rem;
       font-weight: 800;
-      font-size: 1.8rem;
     }
 
-    .section-body p {
-      margin-bottom: 1rem;
-      line-height: 1.8;
-      color: #333;
+    .list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .item-meta { color: var(--muted); font-size: 0.95rem; }
+
+    /* Education 전용 */
+    .edu-item {
+      margin-bottom: 1.5rem;
     }
 
-    /* PUBLICATION */
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .edu-title {
+      font-weight: 700;
+      margin-bottom: 0.2rem;
     }
 
-    .item-title a:hover {
-      opacity: 0.7;
-      border-bottom: 1px solid #aaa;
-    }
-
-    .item-meta {
-      color: var(--muted);
+    .edu-meta {
       font-size: 0.95rem;
-    }
-
-    /* FOOTER */
-    .footer {
-      padding: 2rem 0;
       color: var(--muted);
+      margin-bottom: 0.3rem;
     }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-        text-align: center;
-      }
+    .edu-desc {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.6;
     }
+
+    @media (max-width:768px) {
+      .hero { grid-template-columns: 1fr; }
+      .section { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 
@@ -204,9 +128,10 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="logo">Nayoung Kim</div>
+    <div>Nayoung Kim</div>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#education">Education</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </div>
@@ -215,95 +140,121 @@
 
 <main class="container">
 
-  <!-- HERO -->
-  <section class="hero">
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Nayoung Kim</h1>
+    <p>HCI / UX Researcher</p>
+
+    <p>
+      I design human-centered AI and robotic systems and study how people interact with intelligent technologies.
+    </p>
+
+    <div style="margin-top:1rem;">
+      <a href="./NAYOUNGKIM_CV.pdf" class="button primary">CV</a>
+      <a href="./UX Researcher_NAYOUNGKIM_Portfolio.pdf" class="button primary">Portfolio</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="./profile.jpg">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-title">About</div>
+  <div>
+    <p>
+      I study human interaction with AI and robotic systems, focusing on usability, cognition, and real-world deployment.
+    </p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="section-title">Education</div>
+  <div>
+
+    <div class="edu-item">
+      <div class="edu-title">Ph.D. in Graduate School of Culture Technology, KAIST</div>
+      <div class="edu-meta">2021 – 2025</div>
+      <div class="edu-desc">
+        Thesis: Tailoring and Blending Functions on Natural Input based Hybrid Interaction for Enhanced Practicality in Controller-Free Extended Reality Environment<br>
+        Advisor: Visual Cognition Lab, Prof. Jeongmi Lee
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-title">M.S. in Graduate School of Culture Technology, KAIST</div>
+      <div class="edu-meta">2019 – 2021</div>
+      <div class="edu-desc">
+        Thesis: Multisensory Pseudo-Haptic Feedback for Weight Perception of Virtual Objects<br>
+        Advisor: Visual Cognition Lab, Prof. Jeongmi Lee
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-title">B.S. in Computer Science & Engineering, Chungnam National University</div>
+      <div class="edu-meta">2014 – 2018</div>
+      <div class="edu-desc">
+        Global SW Track member · CNU Engineering Student of the Year (Dean Award)
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+  <div class="section-title">Publications</div>
+  <div class="list">
+
     <div>
-      <h1>Nayoung Kim</h1>
-
-      <div class="meta">
-        HCI / UX Researcher<br>
-        <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a>
+      <div>
+        <a href="./IROS.pdf" target="_blank">
+          Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots
+        </a>
       </div>
-
-      <p class="intro">
-        I design human-centered AI and robotic systems. My work focuses on how people interact with intelligent systems in real-world contexts.
-      </p>
-
-      <div class="hero-actions">
-        <a href="./NAYOUNGKIM_CV.pdf" class="button primary" target="_blank">CV</a>
-        <a href="./UX Researcher_NAYOUNGKIM_Portfolio.pdf" class="button primary" target="_blank">Portfolio</a>
+      <div class="item-meta">
+        <strong>Nayoung Kim</strong>, Sona Kwak · IROS 2024
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="./profile.jpg" />
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="section-title">About</div>
-    <div class="section-body">
-      <p>
-        With a background in psychology and HCI, I study how people interact with emerging technologies.
-      </p>
-      <p>
-        My research focuses on human-robot interaction, AI service design, and user-centered systems.
-      </p>
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications" class="section">
-    <div class="section-title">Publications</div>
-
-    <div class="section-body">
-      <div class="list">
-
-        <div>
-          <div class="item-title">
-            <a href="./IROS.pdf" target="_blank">
-              Investigating Behavioral and Cognitive Changes Induced by Autonomous Delivery Robots
-            </a>
-          </div>
-          <div class="item-meta">N. Kim · IROS 2024</div>
-        </div>
-
-        <div>
-          <div class="item-title">
-            <a href="./ComputersInHumanBehavior.pdf" target="_blank">
-              UX Design in Live-streaming Commerce Interfaces
-            </a>
-          </div>
-          <div class="item-meta">Computers in Human Behavior</div>
-        </div>
-
-        <div>
-          <div class="item-title">
-            <a href="./HCIK.pdf" target="_blank">
-              UX Requirements for Digital Healthcare Services
-            </a>
-          </div>
-          <div class="item-meta">HCIK 2023</div>
-        </div>
-
+    <div>
+      <div>
+        <a href="./ComputersInHumanBehavior.pdf" target="_blank">
+          UX Design in Live-streaming Commerce Interfaces
+        </a>
+      </div>
+      <div class="item-meta">
+        H. Shin, C. Oh, <strong>Nayoung Kim</strong> · Computers in Human Behavior
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="section-title">Contact</div>
-    <div class="section-body">
-      <p>Email: <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/08k26ny" target="_blank">github.com/08k26ny</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/08na26youngkim/" target="_blank">Profile</a></p>
+    <div>
+      <div>
+        <a href="./HCIK.pdf" target="_blank">
+          UX Requirements for Digital Healthcare Services
+        </a>
+      </div>
+      <div class="item-meta">
+        <strong>Nayoung Kim</strong> · HCIK 2023
+      </div>
     </div>
-  </section>
 
-  <footer class="footer">
-    © 2026 Nayoung Kim
-  </footer>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-title">Contact</div>
+  <div>
+    <p>Email: <a href="mailto:nayoungkim0826@gmail.com">nayoungkim0826@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/08k26ny" target="_blank">github.com/08k26ny</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/08na26youngkim/" target="_blank">Profile</a></p>
+  </div>
+</section>
 
 </main>
 
