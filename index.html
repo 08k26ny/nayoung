@@ -74,8 +74,17 @@
     .nav-links {
       display: flex;
       gap: 1.4rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: flex-end;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-links a {
@@ -83,6 +92,7 @@
       color: #222;
       transition: opacity 0.2s ease;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .nav-links a:hover {
@@ -337,18 +347,23 @@
     @media (max-width: 768px) {
       .nav-inner {
         padding: 1rem 1.25rem;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo {
+        flex: 0 0 auto;
       }
 
       .nav-links {
-        width: 100%;
-        gap: 0.9rem 1.1rem;
+        flex: 1 1 auto;
         justify-content: flex-start;
+        gap: 0.9rem;
       }
 
       .container {
-        padding: 8.5rem 1.25rem 2.5rem;
+        padding: 7.25rem 1.25rem 2.5rem;
       }
 
       .hero {
@@ -367,8 +382,16 @@
     }
 
     @media (max-width: 640px) {
+      .nav-inner {
+        padding: 0.95rem 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+
       .container {
-        padding: 8.5rem 1rem 2.5rem;
+        padding: 7rem 1rem 2.5rem;
       }
 
       .hero-text h1 {
